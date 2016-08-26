@@ -17,8 +17,9 @@ feature "reviewing" do
     fill_in "Thoughts", with: "So so"
     select "3", from: "Rating"
     click_button "Leave review"
-
-    expect(current_path).to eq "/restaurants"
+    click_link "KFC"
+    restaurant = Restaurant.find_by(name: "KFC")
+    expect(current_path).to eq "/restaurants/#{restaurant.id}"
     expect(page).to have_content "So so"
   end
 

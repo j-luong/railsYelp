@@ -6,6 +6,8 @@
 %br
 %h3= "Restaurant reviews"
 - @restaurant.reviews.each do |review|
+  = star_rating(review.rating)
+  %br
   = review.thoughts
   %br
   %br
