@@ -13,3 +13,11 @@ def add_restaurant(name: "KFC", description: "Yum")
   fill_in "Description", with: description
   click_button "Create Restaurant"
 end
+
+def leave_review(thoughts, rating)
+  visit("/restaurants")
+  click_link "Review KFC"
+  fill_in "Thoughts", with: thoughts
+  select rating, from: "Rating"
+  click_button "Leave review"
+end
