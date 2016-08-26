@@ -9,8 +9,8 @@
     %a(href="/restaurants") Home
 
     - if user_signed_in?
-      %h4= "Hello, #{current_user.email}"
       = link_to "Sign out", destroy_user_session_path, method: :delete
+      %h4= "Hello, #{current_user.email}"
 
     - else
       = link_to "Sign in", new_user_session_path
