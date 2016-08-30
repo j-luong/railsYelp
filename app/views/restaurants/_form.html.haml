@@ -1,0 +1,14 @@
+= form_for @restaurant, html: {multipart: true} do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  %br
+  = f.label :description
+  = f.text_area :description
+  %br
+  %br
+  = f.label :picture
+  = f.file_field :image
+  %br
+  %br
+  = f.submit

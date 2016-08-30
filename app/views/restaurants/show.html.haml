@@ -1,0 +1,19 @@
+%br
+= image_tag @restaurant.image.url(:original)
+%h1= @restaurant.name
+
+%h3= "Restaurant description"
+%p= @restaurant.description
+%br
+%br
+%h3= "Restaurant reviews"
+- @restaurant.reviews.each do |review|
+  = star_rating(review.rating)
+  %br
+  = review.thoughts
+  %br
+  %br
+  - if (user_signed_in?)
+    - if (review.user_id == current_user.id)
+      = link_to "Edit review", edit_restaurant_review_path(review)
+      = link_to "Delete review", restaurant_review_path(review), method: :delete
